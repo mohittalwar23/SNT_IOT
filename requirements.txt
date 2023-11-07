@@ -4,4 +4,6 @@ Jinja2==3.0.3
 requests==2.26.0
 aiofiles==0.7.0
 python-dotenv==0.17.0
-
+decouple==3.8.0
+python-telegram-bot==20.6.0
+pygame==2.5.2
