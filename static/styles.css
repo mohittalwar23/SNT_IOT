@@ -1,0 +1,68 @@
+/* styles.css */
+/* Include the Google Fonts link in your HTML head */
+
+body {
+    font-family: "Roboto Condensed", sans-serif;
+    font-weight: 700; /* Use a bold variant of the font */
+    background-image: url('esp.gif');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    margin: 0; /* Remove default margin for the body */
+}
+
+.container {
+    background-color: transparent;
+    border-radius: 10px; /* Add a border-radius to create curves */
+}
+
+
+.golden-header {
+    text-align: center;
+    background-color: #946048; /* Set the background color behind the heading to gold */
+    padding: 2px; /* Adjust the padding as needed */
+    margin: 0; /* Remove margin for the h1 element to align it properly */
+}
+
+.golden-header h1 {
+    font-family: "Roboto Condensed", sans-serif;
+    font-weight: 700;
+    font-size: 40px; /* You can adjust the font size as needed */
+    color: #fff; /* You can adjust the font color as needed */
+}
+
+.sensor-container {
+    display: flex;
+    text-align: center;
+}
+
+.sensor {
+    flex: 1;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 10px; /* Add a border-radius to create curves */
+    background-color: rgba(242, 242, 242, 0.5);
+    transition: background-color 0.3s;
+}
+
+.sensor:hover {
+    background-color: #946048;
+}
+
+#map {
+    width: 100%;
+    height: 400px;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 10px; /* Add a border-radius to create curves */
+}
+.leaflet-tile {
+    opacity: 0.1;
+}
+
+.golden-footer {
+    /* Add styles for the footer here */
+}
+

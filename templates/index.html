@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="/static/styles.css">
+    <script>
+        function updateVibrationSensorData() {
+            fetch('/vibration_sensor_data')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('vibration-sensor-data').textContent = data;
+                });
+        }
+
+        function updateGasSensorData() {
+            fetch('/gas_sensor_data')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('gas-sensor-data').textContent = data;
+                });
+        }
+
+        function updateMap() {
+            // Include your map update logic here
+        }
+
+        setInterval(updateVibrationSensorData, 2000);  // Update vibration sensor data every 2 seconds
+        setInterval(updateGasSensorData, 2000);  // Update gas sensor data every 2 seconds
+        setInterval(updateMap, 2000);  // Update the map data every 2 seconds
+    </script>
+    <link href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" rel="stylesheet">
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script>
+        var map;
+        function initMap() {
+            var lat = {{ context.lat }};
+            var lon = {{ context.lon }};
+            map = L.map('map').setView([lat, lon], 13);
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '© OpenStreetMap contributors'
+            }).addTo(map);
+            L.marker([lat, lon]).addTo(map)
+                .bindPopup('Your Location')
+                .openPopup();
+        }
+    </script>
+</head>
+<body onload="initMap()">
+
+    <div class="container">
+        <header class="golden-header">
+            <h1>DISASTER MANAGEMENT SYSTEM</h1>
+        </header>
+
+        <div class="sensor-container">
+            <div class="sensor">
+                <h2>Vibration Sensor Data</h2>
+                <p id="vibration-sensor-data">Loading...</p>
+            </div>
+            <div class="sensor">
+                <h2>Gas Sensor Data</h2>
+                <p id="gas-sensor-data">Loading...</p>
+            </div>
+        </div>
+        <div id="map" style="height: 400px;"></div>
+
+        <footer class="golden-footer">
+            <!-- Footer content here -->
+        </footer>
+    </div>
+</body>
+</html>
